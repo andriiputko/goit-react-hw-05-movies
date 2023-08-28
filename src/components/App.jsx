@@ -1,23 +1,34 @@
+import { lazy, Suspense } from 'react';
+import { Route, Routes } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import SharedLayout from './SharedLayout/SharedLayout';
+
+const HomePageRender = lazy(() => import('../components/Home/Home'));
+const MoviesPageRender = lazy(() => import('../components/Movies/Movies'));
+const MovieDetailsRender = lazy(() => import('../components/MovieDetails/MovieDetails'));
+// const CastPage = lazy(() => import('../pages/CastPage'));
+// const ReviewsPage = lazy(() => import('../pages/ReviewsPage'));
+
 export const App = () => {
   return (
-    <div
-      style={{
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 40,
-        color: '#010101'
-      }}
-    >
-      React homework template
-    </div>
+    <>
+      <SharedLayout />
+      <Suspense fallback={<div>Loading..</div>}>
+        <Routes>
+          <Route path="/" element={<HomePageRender />} />
+          {/* <Route index element={} /> */}
+          <Route path="movies" element={<MoviesPageRender />} />
+
+          <Route path="/movies/:movieId/*" element={<MovieDetailsRender />} />
+          {/* <Route path="cast" element={<CastPage />} />
+                <Route path="reviews" element={<ReviewsPage />} /> */}
+          {/* </Route>
+            </Route>
+          </Route> */}
+        </Routes>
+      </Suspense>
+      <ToastContainer />
+    </>
   );
 };
-
-
-
-const KEY = "e3ec3e6b497e3ef8943e45c84058b3f3";
-
-
-const token = "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJlM2VjM2U2YjQ5N2UzZWY4OTQzZTQ1Yzg0MDU4YjNmMyIsInN1YiI6IjY0ZWNlYmVlZTJiY2E4MDBjNTZiZWU2YSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.FwAwsxGuf0r4NMDavqAuj9NjE7_BJbk7VYg9hvZDi7M";
