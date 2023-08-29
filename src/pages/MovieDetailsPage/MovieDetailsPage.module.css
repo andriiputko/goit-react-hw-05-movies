@@ -1,0 +1,36 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: aliceblue
+}
+
+.link {
+    color: rgb(5, 9, 84);
+    background-color: aliceblue;
+    font-size: 18px;
+    font-weight: 500px;
+    text-decoration: none;
+    transition-duration: 300ms;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.link:hover {
+    color: rgb(240, 229, 30);
+}
+
+.backLink {
+    text-decoration: none;
+    color: rgb(5, 9, 84);
+    background-color: aliceblue;
+    display: block;
+    padding: 25px;
+    font-size: 21px;
+    font-weight: 500;
+    transition-duration: 300ms;
+}
+
+.backLink:hover {
+    color: rgb(240, 229, 30);;
+}

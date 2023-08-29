@@ -1,15 +1,16 @@
-import defaultImg from '../../../images/defaultImg.png';
-
+import defaultImg from '../../images/defaultImg.jpg';
+import cl from './Cast.module.css';
 
 export default function Cast({ cast }) {
   return (
     <>
       {
-        <ul>
+        <ul className={cl.list}>
           {cast.map(({ id, name, profile_path }) => {
             return (
-              <li key={id}>
+              <li className={cl.li} key={id}>
                 <img
+                  className={cl.img}
                   width={180}
                   src={
                     profile_path
@@ -18,7 +19,7 @@ export default function Cast({ cast }) {
                   }
                   alt={name}
                 />
-                <p>{name}</p>
+                <p className={cl.name}>{name}</p>
               </li>
             );
           })}

@@ -1,0 +1,25 @@
+.header {
+height: 75px;
+background-color: rgb(5, 9, 84);
+padding: 25px;
+display: flex;
+align-items: center;
+}
+
+.nav {
+    display: flex;
+    gap: 20px;
+
+}
+
+.link {
+    font-size: 25px;
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    transition-duration: 300ms;
+    }
+
+.link:hover {
+    color: rgb(205, 199, 3);
+}

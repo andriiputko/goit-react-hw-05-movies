@@ -1,11 +1,13 @@
-export function Reviews({ reviews }) {
+import cl from "./Reviews.module.css"
+
+export default function Reviews({ reviews }) {
     return (
-      <div>
-        <ul>
+      <div className={cl.container}>
+        <ul className={cl.list}>
           {reviews.map(({ id, author, content }) => (
-            <li key={id}>
-              <p>{author}</p>
-              <p>{content}</p>
+            <li className={cl.li} key={id}>
+              <p className={cl.author}>{author}</p>
+              <p className={cl.content}>{content}</p>
             </li>
           ))}
         </ul>

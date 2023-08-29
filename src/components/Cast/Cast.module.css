@@ -1,0 +1,30 @@
+.list {
+    list-style-type: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+    background-color: aliceblue;
+    margin: 0;
+    padding-top: 30px;
+}
+
+.img {
+    border-radius: 7px;
+    filter: grayscale(100%);
+    transition-duration: 300ms;
+}
+
+.img:hover {
+    filter: grayscale(0);
+}
+
+.li {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.name {
+    color: rgb(5, 9, 84);;
+}

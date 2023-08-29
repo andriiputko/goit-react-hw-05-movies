@@ -1,0 +1,22 @@
+.container {
+    background-color: aliceblue;
+    margin: 0;
+    padding-top: 30px;
+}
+
+.list {
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.author {
+    font-size: 22px;
+    font-weight: 500;
+    color: rgb(5, 9, 84);
+}
+
+.content {
+    color: rgb(5, 9, 84);
+}

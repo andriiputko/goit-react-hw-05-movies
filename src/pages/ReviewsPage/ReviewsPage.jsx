@@ -1,8 +1,8 @@
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { toast } from 'react-toastify';
-import { fetchReview } from '../service/apiService';
-import { Reviews } from 'components/movieDetails/reviews/Reviews';
+import { fetchReview } from '../../api/api';
+import  Reviews  from '../../components/Reviews';
 
 export default function CastPage() {
   const { movieId } = useParams();

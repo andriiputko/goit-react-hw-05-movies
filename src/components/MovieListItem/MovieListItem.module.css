@@ -1,0 +1,15 @@
+
+
+.link {
+    text-decoration: none;
+    color: rgb(5, 9, 84);
+}
+
+.link:hover {
+    color: orange;
+}
+
+.title {
+    font-size: 23px;
+    font-weight: 500;
+}

@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { fetchMovies } from "../../api/api";
+import cl from "./MovieDetails.module.css"
 
 export const MovieDetails = () => {
   const [movie, setMovie] = useState({});
@@ -25,19 +26,20 @@ export const MovieDetails = () => {
     const movieGenres = genres.map(genre => genre.name).join(', ');
 
     return (
-      <div>
+      <div className={cl.container}>
         <img
           src={`https://image.tmdb.org/t/p/w300${poster_path}`}
           alt={title}
+          className={cl.img}
         />
-        <h2>{title}</h2>
-        <p>
+        <h2 className={cl.title}>{title}</h2>
+        <p className={cl.text}>
           User score: <span>{userScore}%</span>
         </p>
-        <h3>Overview</h3>
-        <p>{overview}</p>
-        <h4>Genres</h4>
-        <p>{movieGenres}</p>
+        <h3 className={cl.h3}>Overview</h3>
+        <p className={cl.text}>{overview}</p>
+        <h4 className={cl.h4}>Genres</h4>
+        <p className={cl.text}>{movieGenres}</p>
       </div>
     );
   }

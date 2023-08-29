@@ -4,7 +4,8 @@ import { toast } from 'react-toastify';
 import { useState, useEffect } from 'react';
 import { fetchMoviesSearch } from "../../api/api";
 import { MoviesList } from "../MovieList/MovieList";
-// import SearchBar from 'components/searchBox/SearchBox';
+import cl from "./Movies.module.css";
+
 export default function MoviesPageRender() {
   const [movies, setMovies] = useState([]);
   const [searhParams, setSearchParams] = useSearchParams();
@@ -33,15 +34,16 @@ export default function MoviesPageRender() {
   return (
     <>
       <Formik
+        
         initialValues={{ query: '' }}
         onSubmit={({ query }, { resetForm }) => {
           setSearchParams({ query });
           resetForm();
         }}
       >
-        <Form>
-          <Field name="query" type="text" placeholder="Search movies" />
-          <button type="submit">Search</button>
+        <Form className={cl.form}>
+          <Field className={cl.input} name="query" type="text" placeholder="Search movies" />
+          <button className={cl.button} type="submit">Search</button>
         </Form>
       </Formik>
       {Object.keys(movies).length > 0 && <MoviesList movies={movies} />}
