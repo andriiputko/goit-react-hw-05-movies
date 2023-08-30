@@ -1,4 +1,4 @@
-import { Suspense, lazy } from 'react';
+import { Suspense, lazy, useRef } from 'react';
 import { Link, useLocation, useParams } from 'react-router-dom';
 import { Route, Routes } from 'react-router-dom';
 import { MovieDetails } from '../../components/MovieDetails/MovieDetails';
@@ -10,11 +10,11 @@ const ReviewsPage = lazy(() => import('../ReviewsPage'));
 const MovieDetailsRender = () => {
   const location = useLocation();
   const { movieId } = useParams();
-  const goBackPage = location.state?.from ?? '/';
+  const goBackPage = useRef(location?.state?.from ?? '/movies');
   return (
     movieId && (
       <>
-        <Link className={cl.backLink} to={goBackPage}>Go back</Link>
+        <Link className={cl.backLink} to={goBackPage.current}>Go back</Link>
         <MovieDetails />
         <div className={cl.container}>
           <h3 className={cl.title}>Additional information</h3>
@@ -34,33 +34,5 @@ const MovieDetailsRender = () => {
     )
   );
 };
-// const GoBack = styled(Link)`
-//   padding: ${p => p.theme.space[3]}px;
-//   color: ${p => p.theme.colors.text};
-//   font-weight: ${p => p.theme.fontWeights.bold};
-//   margin-bottom: ${p => p.theme.space[3]}px;
-//   margin-left: ${p => p.theme.space[3]}px;
-//   :hover,
-//   :focus {
-//     color: ${p => p.theme.colors.accent};
-//   }
-// `;
-// const AdditionalInfo = styled.div`
-//   margin-bottom: ${p => p.theme.space[4]}px;
-//   margin-left: ${p => p.theme.space[4]}px;
-// `;
-// const AdditionalLink = styled(Link)`
-//   text-decoration: none;
-//   color: ${p => p.theme.colors.text};
-//   font-size: ${p => p.theme.fontSizes.l};
-//   font-weight: ${p => p.theme.fontWeights.bold};
-//   margin-right: ${p => p.theme.space[4]}px;
-//   &.active {
-//     color: ${p => p.theme.colors.accent};
-//   }
-//   :hover,
-//   :focus {
-//     color: ${p => p.theme.colors.accent};
-//   }
-// `;
+
 export default MovieDetailsRender;
