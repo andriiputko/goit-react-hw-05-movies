@@ -1,4 +1,4 @@
-import { Suspense, lazy, useRef } from 'react';
+import { Suspense, lazy } from 'react';
 import { Link, useLocation, useParams } from 'react-router-dom';
 import { Route, Routes } from 'react-router-dom';
 import { MovieDetails } from '../../components/MovieDetails/MovieDetails';
@@ -10,11 +10,11 @@ const ReviewsPage = lazy(() => import('../ReviewsPage'));
 const MovieDetailsRender = () => {
   const location = useLocation();
   const { movieId } = useParams();
-  const goBackPage = useRef(location?.state?.from ?? '/movies');
+  const goBackPage = location.state?.from ?? '/movies';
   return (
     movieId && (
       <>
-        <Link className={cl.backLink} to={goBackPage.current}>Go back</Link>
+        <Link className={cl.backLink} to={goBackPage}>Go back</Link>
         <MovieDetails />
         <div className={cl.container}>
           <h3 className={cl.title}>Additional information</h3>

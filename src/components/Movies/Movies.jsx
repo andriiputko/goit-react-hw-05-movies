@@ -9,7 +9,6 @@ import cl from "./Movies.module.css";
 export default function MoviesPageRender() {
   const [movies, setMovies] = useState([]);
   const [searhParams, setSearchParams] = useSearchParams();
-  // const { movieId } = useParams();
   const query = searhParams.get('query') ?? '';
 
   useEffect(() => {
